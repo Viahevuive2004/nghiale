@@ -1,0 +1,319 @@
+/* --- Reset & Basic Styles --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif; /* Or specific font */
+    background-color: #f4f7fc; /* Light grey background */
+    color: #333;
+    font-size: 14px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+/* --- Dashboard Layout --- */
+.dashboard-container {
+    display: flex;
+}
+
+/* --- Sidebar Styles --- */
+.sidebar {
+    width: 250px; /* Fixed width */
+    height: 100vh;
+    background-color: #0a1d3e; /* Dark blue */
+    color: #a7b1c2; /* Light grey text */
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    position: sticky; /* Keep sidebar visible */
+    top: 0;
+}
+
+.sidebar .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sidebar .search-bar {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.sidebar .search-bar input {
+    width: 100%;
+    padding: 10px 15px 10px 35px; /* Padding left for icon */
+    border-radius: 20px;
+    border: none;
+    background-color: #1f2e4d;
+    color: #fff;
+    outline: none;
+}
+
+.sidebar .search-bar input::placeholder {
+    color: #a7b1c2;
+}
+
+.sidebar .search-bar button {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #a7b1c2;
+    font-size: 1.1em;
+}
+
+.sidebar .main-nav ul li a {
+    display: flex;
+    align-items: center;
+    padding: 12px 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.sidebar .main-nav ul li a [ICON] { /* Style your icons */
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+
+.sidebar .main-nav ul li.active a,
+.sidebar .main-nav ul li a:hover {
+    background-color: #1f2e4d;
+    color: #fff;
+}
+
+/* --- Main Content Styles --- */
+.main-content {
+    flex-grow: 1;
+    /* No padding here, padding will be in header/body */
+}
+
+/* --- Main Header Styles --- */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px 30px;
+    border-bottom: 1px solid #e3e6f0;
+}
+
+.header-left, .header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Spacing between elements */
+}
+
+.menu-toggle {
+    font-size: 1.5em;
+    color: #555;
+}
+
+.update-btn {
+    background-color: #1cc88a; /* Green */
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.notification-btn {
+    font-size: 1.4em;
+    color: #b7b9cc;
+    position: relative;
+    /* Add ::after for badge */
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.user-profile .avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-profile span {
+    font-weight: 500;
+    color: #5a5c69;
+}
+
+/* --- Dashboard Body Styles --- */
+.dashboard-body {
+    padding: 30px;
+    display: grid; /* Use grid for layout */
+    gap: 25px; /* Spacing between grid items */
+    grid-template-columns: repeat(3, 1fr); /* Example: 3 columns for stats */
+    /* Adjust grid template areas or columns/rows for the full layout */
+    /* This example needs refinement for the exact layout */
+     grid-template-areas:
+        "stat1 stat2 stat3"
+        "chart1 chart1 chart2"
+        "widgets table table";
+    grid-template-rows: auto auto 1fr; /* Define row heights */
+}
+
+/* --- Card Styles --- */
+.stat-card, .chart-card, .widget-card, .table-widget {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid transparent; /* Base for colored border */
+}
+
+/* Specific Card Positioning (Example) */
+.stats-row { grid-area: stat1 / stat1 / stat3 / stat3; display: contents;} /* Let cards flow */
+.stats-row .stat-card:nth-child(1) { grid-area: stat1; }
+.stats-row .stat-card:nth-child(2) { grid-area: stat2; }
+.stats-row .stat-card:nth-child(3) { grid-area: stat3; }
+.charts-row { grid-area: chart1 / chart1 / chart2 / chart2; display: contents;}
+.charts-row .bar-chart-card { grid-area: chart1; }
+.charts-row .area-chart-card { grid-area: chart2; }
+.bottom-row { grid-area: widgets / widgets / table / table; display: contents;}
+.widgets-column { grid-area: widgets; display: flex; flex-direction: column; gap: 15px;}
+.table-widget-column { grid-area: table; }
+
+
+/* Stat Card Specific */
+.stat-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-left-color: #e74a3b; /* Default red border */
+}
+.stat-card .card-icon { font-size: 1.8em; color: #ddd; }
+.stat-card .card-icon.red { color: #e74a3b; }
+.stat-card .card-icon.grey { color: #ccc; }
+.stat-card .card-content { text-align: right; }
+.stat-card .stat-number { font-size: 1.6em; font-weight: bold; color: #5a5c69; }
+.stat-card .stat-label { font-size: 0.9em; color: #858796; }
+.stat-card .card-action { font-size: 1.5em; color: #ccc; }
+.stat-card .card-action.red { color: #e74a3b;}
+
+
+/* Chart Card Specific */
+.chart-card {
+    /* Styles for chart containers */
+    min-height: 300px; /* Example height */
+    display: flex;
+    flex-direction: column;
+}
+.chart-placeholder {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ccc;
+    font-size: 1.2em;
+    background-color: #f8f9fc; /* Placeholder bg */
+    border-radius: 5px;
+}
+.area-chart-card {
+    background-color: #4e73df; /* Blue background */
+    color: #fff;
+    position: relative;
+    border-left: none;
+}
+.area-chart-card .chart-content { padding: 10px; z-index: 1;}
+.area-chart-card .chart-percentage { font-size: 2em; font-weight: bold;}
+.area-chart-card .chart-label { font-size: 1em; opacity: 0.8;}
+.area-chart-card .chart-placeholder {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60%; /* Area for the chart line */
+    background: none;
+    color: rgba(255,255,255,0.3);
+}
+
+/* Widget Card Specific */
+.widgets-column { display: flex; flex-direction: column; gap: 15px; }
+.widget-card { display: flex; align-items: center; gap: 15px; border-left-width: 4px; }
+.widget-card.orange { border-left-color: #f6c23e; }
+.widget-card.blue { border-left-color: #4e73df; }
+.widget-card.green { border-left-color: #1cc88a; }
+
+.widget-icon { font-size: 1.8em; color: #ccc; }
+.widget-content { flex-grow: 1; }
+.widget-label { font-size: 0.85em; color: #858796; margin-bottom: 2px;}
+.widget-value { font-weight: bold; color: #5a5c69; margin-bottom: 5px;}
+.progress-bar { height: 5px; background-color: #eaecf4; border-radius: 3px; overflow: hidden;}
+.progress { height: 100%; background-color: #4e73df; border-radius: 3px; } /* Default blue */
+.widget-card.orange .progress { background-color: #f6c23e; }
+.widget-card.green .progress { background-color: #1cc88a; }
+
+
+/* Table Widget Specific */
+.table-widget { border-left-color: #6f42c1; /* Example purple border */ }
+.table-widget .widget-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;}
+.table-widget h4 { font-size: 1.1em; color: #5a5c69; font-weight: bold;}
+.table-widget .header-actions button { color: #ccc; font-size: 1.1em; margin-left: 5px;}
+.table-widget .widget-summary { font-size: 0.85em; color: #858796; margin-bottom: 15px;}
+
+.table-widget table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-widget th, .table-widget td {
+    padding: 10px 8px;
+    text-align: left;
+    border-bottom: 1px solid #e3e6f0;
+    font-size: 0.9em;
+}
+
+.table-widget thead th {
+    color: #858796;
+    font-weight: bold;
+    border-bottom-width: 2px;
+}
+
+.table-widget tbody td {
+    color: #5a5c69;
+}
+
+.status {
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-size: 0.8em;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.status-paid {
+    background-color: #e1fcef; /* Light green */
+    color: #1cc88a; /* Green */
+}
+.status-pending {
+    background-color: #fdf4e6; /* Light orange */
+    color: #f6c23e; /* Orange */
+}

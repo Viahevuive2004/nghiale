@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Hồ Sơ Y Tế</title>
+    <link rel="stylesheet" href="source/style/style-dashboard.css">
+    </head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="logo">
+                HỒ SƠ Y TẾ
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Tìm kiếm">
+                <button>[ICON]</button> </div>
+            <nav class="main-nav">
+                <ul>
+                    <li class="active"><a href="#">[ICON] Tổng quan</a></li>
+                    <li><a href="#">[ICON] Hồ sơ bệnh nhân</a></li>
+                    <li><a href="#">[ICON] Lịch khám</a></li>
+                    <li><a href="#">[ICON] Đơn thuốc</a></li>
+                    <li><a href="#">[ICON] Tra cứu</a></li>
+                    <li><a href="#">[ICON] Cài đặt</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div class="main-content">
+            <header class="main-header">
+                <div class="header-left">
+                    <button class="menu-toggle">[ICON]</button> <button class="update-btn">Update Now!</button>
+                </div>
+                <div class="header-right">
+                    <button class="notification-btn">[ICON]</button> <div class="user-profile">
+                        <img src="avatar.png" alt="Avatar" class="avatar"> <span>Ngọc Anh</span>
+                        </div>
+                </div>
+            </header>
+
+            <main class="dashboard-body">
+                <div class="stats-row">
+                    <div class="stat-card">
+                        <div class="card-icon red">[ICON]</div>
+                        <div class="card-content">
+                            <div class="stat-number">4</div>
+                            <div class="stat-label">Lịch khám hôm nay</div>
+                        </div>
+                         <button class="card-action red">[+]</button>
+                    </div>
+                    <div class="stat-card">
+                        <div class="card-icon grey">[ICON]</div>
+                        <div class="card-content">
+                            <div class="stat-number">160</div>
+                            <div class="stat-label">Bệnh nhân mới</div>
+                        </div>
+                        <button class="card-action grey">[+]</button>
+                    </div>
+                    <div class="stat-card">
+                        <div class="card-icon red">[?]</div>
+                         <div class="card-content">
+                            <div class="stat-number">160</div>
+                            <div class="stat-label">Phản hồi</div>
+                        </div>
+                         <button class="card-action red">[?]</button>
+                    </div>
+                </div>
+
+                <div class="charts-row">
+                    <div class="chart-card bar-chart-card">
+                        <div class="chart-placeholder">[BIỂU ĐỒ CỘT]</div>
+                    </div>
+                    <div class="chart-card area-chart-card">
+                         <div class="chart-content">
+                             <div class="chart-percentage">84%</div>
+                             <div class="chart-label">Doanh thu cả khoa</div>
+                         </div>
+                         <div class="chart-placeholder">[BIỂU ĐỒ ĐƯỜNG/MIỀN]</div>
+                    </div>
+                </div>
+
+                <div class="bottom-row">
+                    <div class="widgets-column">
+                        <div class="widget-card orange">
+                            <div class="widget-icon">[ICON]</div>
+                            <div class="widget-content">
+                                <div class="widget-label">Số ca viêm dạ dày</div>
+                                <div class="widget-value">300</div>
+                                <div class="progress-bar"><div class="progress" style="width: 60%;"></div></div>
+                            </div>
+                        </div>
+                        <div class="widget-card blue">
+                             <div class="widget-icon">[ICON]</div>
+                             <div class="widget-content">
+                                <div class="widget-label">Số ca điều trị khỏi</div>
+                                <div class="widget-value">100</div>
+                                <div class="progress-bar"><div class="progress" style="width: 30%;"></div></div>
+                            </div>
+                        </div>
+                        <div class="widget-card green">
+                            <div class="widget-icon">[ICON]</div>
+                             <div class="widget-content">
+                                <div class="widget-label">Tổng số bệnh nhân</div>
+                                <div class="widget-value">5.020</div>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="table-widget-column">
+                        <div class="table-widget">
+                            <div class="widget-header">
+                                <h4>Hóa đơn gần đây</h4>
+                                <div class="header-actions">
+                                    <button>[ICON]</button> <button>[ICON]</button> </div>
+                            </div>
+                            <p class="widget-summary">Tổng hóa đơn đã thanh toán 240, chưa thanh toán 150</p>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Hóa đơn</th>
+                                        <th>Tên bệnh nhân</th>
+                                        <th>Trạng thái</th>
+                                        <th>Hạn</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>JW0012345</td>
+                                        <td>Nhật Hạ</td>
+                                        <td><span class="status status-paid">Đã thanh toán</span></td>
+                                        <td>10/4/2025</td>
+                                    </tr>
+                                    <tr>
+                                         <td>JW0012346</td>
+                                         <td>Minh Anh</td>
+                                         <td><span class="status status-pending">Chưa thanh toán</span></td>
+                                         <td>15/4/2025</td>
+                                     </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
